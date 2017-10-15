@@ -17,7 +17,7 @@ ActiveAdmin.register Post do
       f.input :name
       f.input :description, :as => :ckeditor
       f.input :category
-      f.input :photo
+      f.input :photo, :as => :file
       f.input :filter
     end
     f.actions
