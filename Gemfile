@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Backup database to seed
+gem 'seed_dump'
+
+
 #CORS for api
 gem 'rack-cors'
 
