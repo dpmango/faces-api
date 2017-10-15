@@ -20,3 +20,4 @@
 
 # never push dotnev
 .env
+public/uploads/tmp
