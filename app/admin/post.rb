@@ -14,14 +14,14 @@ ActiveAdmin.register Post do
 
   index do |post|
     selectable_column
-    column 'Image' do |firmware|
+    column 'Фото' do |firmware|
       link_to image_tag(firmware.photo.url,width:100), edit_admin_post_path(firmware.id)
     end
     # id_column
-    column 'Name', :name
-    column :category
-    column :filter
-    column :created_at
+    column 'Имя', :name
+    column 'Категория', :category
+    column 'Фильтр', :filter
+    column 'Создано', :created_at
     actions
   end
 
