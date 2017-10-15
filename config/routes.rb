@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'admin/dashboard#index'
 
-  resources :posts
+  resources :posts, only: [:index, :show]
 end
