@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root 'admin/dashboard#index'
 
   resources :posts, only: [:index, :show]
+  get '/pages/:url', to: 'pages#show', as: "page"
 end
