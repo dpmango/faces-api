@@ -105,7 +105,7 @@ Post.find_or_create_by(name: "Николя Гескьер") do |post|
   post.position = "Модельер"
   post.description = "<p>Ни одно слово не выразит то, что можно сказать взглядом</p>"
   post.category = "hero"
-  post.photo = File.open(Rails.root + "app/assets/images/МОДЕЛЬЕРЫ/Nicolas Ghesquière.jpg")
+  post.photo = File.open(Rails.root + "app/assets/images/МОДЕЛЬЕРЫ/NicolasG.jpg")
   post.filter = "circle"
 end
 
