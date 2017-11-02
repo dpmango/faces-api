@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'admin/dashboard#index'
 
-  resources :posts, only: [:index, :show]
+  resources :posts, only: [:index, :show, :create]
   get '/pages/:url', to: 'pages#show', as: "page"
-  
+
 end

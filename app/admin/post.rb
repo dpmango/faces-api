@@ -2,7 +2,7 @@ ActiveAdmin.register Post do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name, :position, :description, :category, :photo, :filter, :published, :author_email, :author_social
+  permit_params :name, :position, :description, :category, :photo, :hover_pos, :published, :author_email, :author_social
   #
   # or
   #
@@ -22,7 +22,6 @@ ActiveAdmin.register Post do
     # id_column
     column 'Имя', :name
     column 'Категория', :category
-    column 'Фильтр', :filter
     column 'Создано', :created_at
     column 'Опубликовано', :published
     actions
@@ -37,7 +36,7 @@ ActiveAdmin.register Post do
       f.input :photo, :as => :file, :hint => f.object.photo.url.present? \
         ? image_tag(f.object.photo.url,width:100)
         : content_tag(:span, "фото не загружено")
-      f.input :filter
+      f.input :hover_pos
 
       f.input :published
       f.input :author_email
