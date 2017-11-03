@@ -54,6 +54,7 @@ gem 'ckeditor'
 
 #Photos
 gem 'carrierwave'
+gem 'carrierwave-base64'
 gem 'mini_magick'
 gem "fog-aws"
 
