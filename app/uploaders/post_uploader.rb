@@ -29,6 +29,10 @@ class PostUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  #process main image
+  process :resize_to_limit => [700, nil]
+  # process :convert_to_grayscale
+
   # Create different versions of your uploaded files:
   version :thumb do
     process resize_to_fit: [250, 250]
@@ -45,5 +49,15 @@ class PostUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  def convert_to_grayscale
+    manipulate! do |img|
+      img.colorspace("Gray")
+      img.brightness_contrast("-30x0")
+      img = yield(img) if block_given?
+      img
+    end
+  end
+
 
 end

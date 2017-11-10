@@ -12,9 +12,9 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Последние Посты" do
+        panel "Последние Публикации" do
           ul do
-            Post.last(10).map do |post|
+            Post.where(published: true).last(20).map do |post|
               li link_to(post.name, admin_post_path(post))
             end
           end
@@ -22,8 +22,12 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "Привет!" do
-          para "Добро пожаловать.. здесь что то появится позже"
+        panel "Неопубликованные" do
+          ul do
+            Post.where(published: false).last(20).map do |post|
+              li link_to(post.name, admin_post_path(post))
+            end
+          end
         end
       end
     end
