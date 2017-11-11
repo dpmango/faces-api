@@ -7,6 +7,8 @@ class PostsController < ApplicationController
     if (params[:filter].present?)
       if (params[:filter] == "hero" || params[:filter] == "sharevision")
         @posts = Post.where(category: params[:filter])
+      elsif (params[:filter] == "universe")
+        @posts = Post.all
       end
     else
       @posts = Post.all
