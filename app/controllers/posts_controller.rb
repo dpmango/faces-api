@@ -4,7 +4,15 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if (params[:filter].present?)
+      if (params[:filter] == "hero" || params[:filter] == "sharevision")
+        @posts = Post.where(category: params[:filter])
+      end
+    else
+      @posts = Post.all
+    end
+
+    puts @posts
   end
 
   # GET /posts/1
