@@ -6,15 +6,14 @@ class PostsController < ApplicationController
   def index
     if (params[:filter].present?)
       if (params[:filter] == "hero" || params[:filter] == "sharevision")
-        @posts = Post.where(category: params[:filter])
+        @posts = Post.where(category: params[:filter], published: true)
       elsif (params[:filter] == "universe")
-        @posts = Post.all
+        @posts = Post.where(published: true)
       end
     else
-      @posts = Post.all
+      @posts = Post.where(published: true)
     end
 
-    puts @posts
   end
 
   # GET /posts/1
