@@ -5,7 +5,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if (params[:filter].present?)
-      if (params[:filter] == "hero" || params[:filter] == "sharevision")
+      if (params[:filter] == "hero")
+        @posts = Post.where(category: params[:filter], category: "", published: true)
+      elsif (params[:filter] == "sharevision")
         @posts = Post.where(category: params[:filter], published: true)
       elsif (params[:filter] == "universe")
         @posts = Post.where(published: true)
