@@ -72,6 +72,7 @@ Rails.application.configure do
     :port                 => ENV['SMTP_PORT'],
     :user_name            => ENV['SMTP_USER'],
     :password             => ENV['SMTP_PASSWORD'],
+    :tls                  => true,
     :authentication       => "plain"
   }
 
