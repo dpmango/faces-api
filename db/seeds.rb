@@ -17,6 +17,8 @@ AdminUser.find_or_create_by(email: 'admin@mail.com') do |user|
   user.password_confirmation = 'superuser'
 end
 
+Setting.find_or_create_by(admin_email: 'xs290@me.com')
+
 Post.find_or_create_by(name: "Михаил Барышников") do |post|
   post.position = "Артист балета"
   post.description = "<p>С возрастом меняется лишь наш взгляд на привычные вещи</p>"
