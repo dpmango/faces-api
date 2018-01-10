@@ -5,13 +5,14 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if (params[:filter].present?)
-      if (params[:filter] == "hero")
-        @posts = Post.where(category: params[:filter], category: "", published: true)
-      elsif (params[:filter] == "sharevision")
-        @posts = Post.where(category: params[:filter], published: true)
-      elsif (params[:filter] == "universe")
-        @posts = Post.where(published: true)
-      end
+      @posts = Post.where(category: params[:filter], published: true)
+      # if (params[:filter] == "hero")
+      #   @posts = Post.where(category: params[:filter], published: true)
+      # elsif (params[:filter] == "sharevision")
+      #   @posts = Post.where(category: params[:filter], published: true)
+      # elsif (params[:filter] == "universe")
+      #   @posts = Post.where(published: true)
+      # end
     else
       @posts = Post.where(published: true)
     end
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
       if @post.save
 
         @mail_to = Setting.first().admin_email
-        
+
         PostMailer.user_submit(@post, @mail_to).deliver_later
 
         # format.html { redirect_to @post, notice: 'Post was successfully created.' }
