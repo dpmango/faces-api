@@ -22,6 +22,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @prev_post = Post.where(["id < ?", @post.id]).where(published: true).last
+    @next_post = Post.where(["id > ?", @post.id]).where(published: true).first
   end
 
   # GET /posts/new
