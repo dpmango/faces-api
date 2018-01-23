@@ -2,7 +2,7 @@ ActiveAdmin.register Post do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name, :position, :description, :category, :photo, :hover_pos, :published, :author_email, :author_social, :seo_title, :seo_description, :seo_keywords
+  permit_params :name, :position, :description, :video, :content_after, :category, :photo, :hover_pos, :published, :author_email, :author_social, :seo_title, :seo_description, :seo_keywords
   #
   # or
   #
@@ -32,6 +32,8 @@ ActiveAdmin.register Post do
       f.input :name
       f.input :position
       f.input :description, :as => :ckeditor
+      f.input :video
+      f.input :content_after, :as => :ckeditor
       f.input :category
       f.input :photo, :as => :file, :hint => f.object.photo.url.present? \
         ? image_tag(f.object.photo.url,width:100)

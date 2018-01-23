@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111163637) do
+ActiveRecord::Schema.define(version: 20180123200344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 20180111163637) do
     t.string "seo_title"
     t.string "seo_keywords"
     t.string "seo_description"
+    t.string "video"
+    t.string "content_after"
   end
 
   create_table "settings", force: :cascade do |t|
